@@ -6,6 +6,12 @@ $ docker build -t ubuntu-hadoop:3.3.6 .
 # Run Container
 $ docker run -d --name hadoop-single-node --network spark_local_server -p 9870:9870 -p 9000:9000 ubuntu-hadoop:3.3.6
 
+## Note 
+
+--network can be changed to link with other docker stacks, create other docker network 
+
+$ docker network create name_network
+
 # Access HDFS UI
 http://localhost:9870
 
