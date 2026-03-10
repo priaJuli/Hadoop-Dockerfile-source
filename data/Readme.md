@@ -1,0 +1,1 @@
+# This folder used for save any files that need to put in hadoop for your project.
