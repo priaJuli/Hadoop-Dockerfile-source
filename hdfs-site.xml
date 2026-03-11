@@ -5,6 +5,11 @@
     </property>
 
     <property>
+        <name>dfs.client.use.datanode.hostname</name>
+        <value>true</value>
+    </property>
+
+    <property>
         <name>dfs.namenode.name.dir</name>
         <value>file:///hadoop/dfs/namenode</value>
     </property>

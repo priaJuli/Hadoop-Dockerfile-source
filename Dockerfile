@@ -36,6 +36,6 @@ RUN mkdir -p /hadoop/dfs/namenode \
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
-EXPOSE 9870 9000
+EXPOSE 9870 9000 9864 9866
 
 ENTRYPOINT ["/entrypoint.sh"]

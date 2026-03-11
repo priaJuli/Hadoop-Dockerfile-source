@@ -1,0 +1,40 @@
+services:
+  namenode:
+    build: .
+    container_name: namenode
+    hostname: namenode
+    ports:
+      - "9870:9870"
+      - "9000:9000"
+    environment:
+      - ENSURE_NAMENODE_DIR=/hadoop/dfs/namenode
+    volumes:
+      - namenode_data:/hadoop/dfs/namenode
+      # Bind mount: [Local Path] : [Container Path]
+      - ./data:/tmp/datasets:ro
+    networks:
+      - spark_local_server
+
+  datanode:
+    build: .
+    container_name: datanode
+    hostname: datanode
+    depends_on:
+      - namenode
+    ports:
+      - "9864:9864"
+      - "9866:9866"
+    volumes:
+      - datanode_data:/hadoop/dfs/datanode
+      # Bind mount: Same as above
+      - ./data:/tmp/datasets:ro
+    networks:
+      - spark_local_server
+
+networks:
+  spark_local_server:
+    external: true
+
+volumes:
+  namenode_data:
+  datanode_data:
